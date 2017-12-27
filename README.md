@@ -18,14 +18,14 @@ app.listen(8000)             // Configure Domain
 app.header(require('diet-cookies'));
 
 // Sessions
-app.header(require('diet-session')({secret: 'secret'}));
+app.header(require('diet-sess')({secret: 'secret'}));
 ```
 
 Now you will have access to `$.session` object which you can update and it will be saved based on cookies. However, sessions are saved only until app reload, so you might want to connect redis storage to store sessions.
 
 ```js
 // Sessions
-app.header(require('diet-session')({secret: 'secret', redis: {host: 'localhost'}}));
+app.header(require('diet-sess')({secret: 'secret', redis: {host: 'localhost'}}));
 ```
 
 ## **License**
