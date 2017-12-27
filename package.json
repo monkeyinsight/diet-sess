@@ -1,0 +1,36 @@
+{
+	"name": "diet-sess",
+	"version": "1.0.0",
+	"description": "Session manager for diet based applications. diet-cookies must be installed.",
+	"homepage": "http://github.com/monkeyinsight/diet-session/",
+	"keywords": [
+		"session",
+		"session manager",
+		"diet",
+		"dietjs",
+		"diet.js",
+		"diet plugin",
+		"plugin"
+	],
+	"bugs": {
+		"url": "http://github.com/monkeyinsight/diet-sess/issues",
+		"email": "monkeyinsight@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/monkeyinsight/diet-sess.git"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Sergey Sekret",
+		"email": "monkeyinsight@gmail.com",
+		"url": "http://monkeyinsight.com/"
+	},
+	"main": "index.js",
+	"engines": {
+		"node": ">=0.8.21"
+	},
+	"dependencies": {
+		"uid-safe": "^2.1.5"
+	}
+}
