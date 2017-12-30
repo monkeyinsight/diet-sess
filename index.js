@@ -73,8 +73,10 @@ module.exports = function (options) {
                 };
 
                 app.footer(function ($) {
-                    $.session.save();
-                    $.return();
+                    if ($.session && $.session.save) {
+                        $.session.save();
+                    }
+                    return $.return();
                 });
 
                 return $.return();
@@ -104,7 +106,10 @@ module.exports = function (options) {
             };
 
             app.footer(function ($) {
-                $.session.save();
+                if ($.session && $.session.save) {
+                    $.session.save();
+                }
+                return $.return();
             });
 
             return $.return();
