@@ -74,6 +74,7 @@ module.exports = function (options) {
 
                 app.footer(function ($) {
                     $.session.save();
+                    $.return();
                 });
 
                 return $.return();
