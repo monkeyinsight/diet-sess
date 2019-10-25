@@ -36,7 +36,7 @@ module.exports = function (options) {
         }
 
         let name = 'sid';
-        let id = $.cookies.sid ? unsign($.cookies.sid) : uid(24);
+        let id = $.cookies.sid ? (unsign($.cookies.sid) || uid(24)) : uid(24);
 
         $.cookies.set('sid', sign(id), {
             expire: [1,0,0,0,0]
