@@ -23,6 +23,10 @@ var sha1 = function (str){
 }
 
 module.exports = function (options) {
+    if (options.redis) {
+        var redis = require('redis').createClient(options.redis);
+    }
+
     return function ($) {
         if (!$.cookies) {
             return $.return();
@@ -30,9 +34,6 @@ module.exports = function (options) {
 
         if (options.secret) {
             secret = options.secret;
-        }
-        if (options.redis) {
-            var redis = require('redis').createClient(options.redis);
         }
 
         let name = 'sid';
@@ -72,13 +73,6 @@ module.exports = function (options) {
                     });
                 };
 
-                app.footer(function ($) {
-                    if ($.session && $.session.save) {
-                        $.session.save();
-                    }
-                    return $.return();
-                });
-
                 return $.return();
             });
         } else {
@@ -104,13 +98,6 @@ module.exports = function (options) {
                     expire: [-1,0,0,0,0]
                 });
             };
-
-            app.footer(function ($) {
-                if ($.session && $.session.save) {
-                    $.session.save();
-                }
-                return $.return();
-            });
 
             return $.return();
         }

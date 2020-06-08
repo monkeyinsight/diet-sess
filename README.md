@@ -19,6 +19,13 @@ app.header(require('diet-cookies'));
 
 // Sessions
 app.header(require('diet-sess')({secret: 'secret'}));
+
+app.footer(function ($) {
+    if ($.session && typeof $.session.save == 'function') {
+        $.session.save();
+    }
+    return $.return();
+});
 ```
 
 Now you will have access to `$.session` object which you can update and it will be saved based on cookies. However, sessions are saved only until app reload, so you might want to connect redis storage to store sessions.
