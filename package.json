@@ -1,6 +1,6 @@
 {
 	"name": "diet-sess",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "Session manager for diet based applications. diet-cookies must be installed.",
 	"homepage": "http://github.com/monkeyinsight/diet-sess/",
 	"keywords": [

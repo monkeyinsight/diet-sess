@@ -40,7 +40,8 @@ module.exports = function (options) {
         let id = $.cookies.sid ? (unsign($.cookies.sid) || uid(24)) : uid(24);
 
         $.cookies.set('sid', sign(id), {
-            expire: [1,0,0,0,0]
+            expire: [1,0,0,0,0],
+            secure: true
         });
 
         if (redis) {
@@ -69,7 +70,8 @@ module.exports = function (options) {
                     $.session = {};
                     redis.del("sid." + $.session.sid);
                     $.cookies.set('sid', '', {
-                        expire: [-1,0,0,0,0]
+                        expire: [-1,0,0,0,0],
+                        secure: true
                     });
                 };
 
@@ -95,7 +97,8 @@ module.exports = function (options) {
                 $.session = {};
                 delete sessions[$.session.sid];
                 $.cookies.set('sid', '', {
-                    expire: [-1,0,0,0,0]
+                    expire: [-1,0,0,0,0],
+                    secure: true
                 });
             };
 
